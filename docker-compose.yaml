@@ -1,0 +1,9 @@
+services:
+  gps:
+    image: ltap_gps_image:latest
+    ports:
+      - 80:80
+#    working_dir: /var/www/html
+    volumes:
+      - ./src:/var/www/html
+    restart: unless-stopped

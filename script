@@ -1,0 +1,10 @@
+{
+:global lat
+:global lon
+/system gps monitor once do={
+:set $lat $("latitude")
+:set $lon $("longitude")
+}
+tool fetch mode=http url="http://192.168.89.253/index.php" port=80 http-method=post http-data=("{\"lat\":\"" . $lat . "\",\"lon\":\"" . $lon . "\"}") http-header-field="Content-Type: application/json"
+:put ("{\"lat\":\"" . $lat . "\",\"lon\":\"" . $lon . "\"}")
+}
